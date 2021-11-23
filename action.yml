@@ -1,0 +1,23 @@
+name: 'go-simple'
+description: 'The golang command line program as a GitHub Action'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.result }}
+    - ${{ inputs.url }}
+    - ${{ inputs.command }}
+branding:
+  icon: 'terminal'
+  color: 'blue'
+inputs:
+  version:
+    description: 'golang version, e.g. `v1.13.0`, defaults to latest'
+    required: false
+    default: latest
+  config:
+    description: 'kube config data'
+    required: true
+  command:
+    description: 'golang command to run, without the golang, e.g. ``'
+    required: true
