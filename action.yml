@@ -11,11 +11,11 @@ branding:
   icon: 'terminal'
   color: 'blue'
 inputs:
-  version:
+  result:
     description: 'golang version, e.g. `v1.13.0`, defaults to latest'
     required: false
     default: latest
-  config:
+  url:
     description: 'kube config data'
     required: true
   command:
