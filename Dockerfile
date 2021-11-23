@@ -1,6 +1,5 @@
 FROM golang:1.16-alpine
 
-
 WORKDIR /app
 
 COPY go.mod ./
@@ -11,7 +10,7 @@ RUN go mod download
 RUN go build -o /notfli
 
 COPY entrypoint.sh /entrypoint.sh
-
+RUN chmod 755 /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["help"]
 
