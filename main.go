@@ -172,7 +172,7 @@ func init() {
 	flag.StringVar(&webbookurl, "url", envwebbookurl, "-url 指定webbookurl")
 	flag.StringVar(&buildbranch, "branch", "master", "-branch 指定branch")
 	flag.StringVar(&buildusers, "user", "Unknown", "-user 指定发起者")
-	flag.StringVar(&buildtime, "time", "Unknown", "-time 指定时间")
+	flag.StringVar(&buildtime, "time", time.Now().Format("2006-01-02 15:04:05"), "-time 指定时间")
 	flag.StringVar(&buildresult, "result", "Unknown", "-result 指定结果")
 	flag.StringVar(&builddetails, "details", "https://www.google.com", "-details 指定结果")
 	flag.Parse()
