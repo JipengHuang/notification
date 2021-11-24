@@ -1,20 +1,23 @@
-# notification
-<<<<<<< HEAD
+# use notification 
+
 
 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build  -o ./notfli main.go
+
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64  go build  -o ./notfli main.go
 
 ./notfli 
 
--name 
+-name   指定项目名称
 
--url
+-url    指定webbookurl
 
--branch 
+-branch 指定branch
 
--user
+-user   指定发起者
 
--time
+-time   指定时间
 
--details
+-result 指定结果
+
+-details 指定链接 
 

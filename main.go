@@ -176,6 +176,6 @@ func init() {
 	flag.StringVar(&buildusers, "user", "Unknown", "-user 指定发起者")
 	flag.StringVar(&buildtime, "time", time.Now().In(cstSh).Format("2006-01-02 15:04:05"), "-time 指定时间")
 	flag.StringVar(&buildresult, "result", "Unknown", "-result 指定结果")
-	flag.StringVar(&builddetails, "details", "https://www.google.com", "-details 指定结果")
+	flag.StringVar(&builddetails, "details", "https://www.google.com", "-details 指定链接")
 	flag.Parse()
 }
