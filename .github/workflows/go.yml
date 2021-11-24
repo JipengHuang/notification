@@ -26,15 +26,15 @@ jobs:
     - name: download
       run: go mod download
       
-    - name: download
-      run: go build -o ./notfli
+    - name: build  linux
+      run: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./notfli
 
+    - name: build darwin
+      run: CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o ./notfli_darwin
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
       with:
         author_name: Your Name
         author_email: mail@example.com
-        message: 'Your commit message'
-        add: './notfli'
-      
-    
+        message: 'actions  build'
+        add: './notfli*'
