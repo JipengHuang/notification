@@ -9,22 +9,13 @@ WORKDIR /app
 #RUN go build -o /notfli
 
 COPY notfli /notfli
-ENV TZ=Asia/Shanghai
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod 755 /notfli /entrypoint.sh
+
+RUN apk add tzdata && \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+    echo "Asia/Shanghai" > /etc/timezone && \
+    chmod 755 /notfli /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["help"]
 
-#./notfli
-#
-#-name
-#
-#-url
-#
-#-branch
-#
-#-user
-#
-#-time
-#
-#-result
