@@ -25,7 +25,7 @@ type msgbody struct {
 	Buildtime		string `json:"buildtime"`
 	Buildresult		string `json:"buildresult"`
 	Webbookurl       string `json:"webbookurl"`
-	Webbooksecrets    string `json:"webbooksecrets"`
+	//Webbooksecrets    string `json:"webbooksecrets"`
 }
 
 //项目名称
@@ -46,7 +46,7 @@ var (
 	buildtime		string
 	buildresult		string
 	webbookurl       string
-	webbooksecrets    string
+	//webbooksecrets    string
 )
 
 const (
@@ -168,11 +168,13 @@ func main() {
 }
 
 func init() {
+	var cstSh, _ = time.LoadLocation("Asia/Shanghai") //  Shanghai
+	//fmt.Println(time.Now().In(cstSh).Format("2006-01-02 15:04:05"))
 	flag.StringVar(&projectname, "name", "Unknown", "-name 指定项目名称")
 	flag.StringVar(&webbookurl, "url", envwebbookurl, "-url 指定webbookurl")
 	flag.StringVar(&buildbranch, "branch", "master", "-branch 指定branch")
 	flag.StringVar(&buildusers, "user", "Unknown", "-user 指定发起者")
-	flag.StringVar(&buildtime, "time", time.Now().Format("2006-01-02 15:04:05"), "-time 指定时间")
+	flag.StringVar(&buildtime, "time", time.Now().In(cstSh).Format("2006-01-02 15:04:05"), "-time 指定时间")
 	flag.StringVar(&buildresult, "result", "Unknown", "-result 指定结果")
 	flag.StringVar(&builddetails, "details", "https://www.google.com", "-details 指定结果")
 	flag.Parse()
